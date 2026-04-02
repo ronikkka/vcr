@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ателье индивидуального пошива — МошкинА</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">МошкинА</h1>
+            <ul class="nav-menu">
+                <li><a href="#" onclick="showPage('home')">Главная</a></li>
+                <li><a href="#" onclick="showPage('portfolio')">Портфолио</a></li>
+                <li><a href="#" onclick="showPage('services')">Услуги</a></li>
+                <li><a href="#" onclick="showPage('order')">Онлайн-заказ</a></li>
+                <li><a href="#" onclick="showPage('cabinet')">Личный кабинет</a></li>
+                <li><a href="#" onclick="showPage('contacts')">Контакты</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Главная -->
+    <section id="home" class="page active">
+        <header class="hero">
+            <h1>Ателье индивидуального пошива</h1>
+            <p>Воплощаем ваши мечты о совершенном образе в реальность</p>
+            <button onclick="showPage('order')">Заказать сейчас</button>
+        </header>
+
+        <section class="features-section">
+            <h2>Почему выбирают нас</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>Индивидуальный подход</h3>
+                    <p>Каждое изделие создается с учетом ваших пожеланий и особенностей фигуры</p>
+                </div>
+                <div class="feature">
+                    <h3>Премиальное качество</h3>
+                    <p>Используем только качественные ткани и материалы от проверенных поставщиков</p>
+                </div>
+                <div class="feature">
+                    <h3>Соблюдение сроков</h3>
+                    <p>Гарантируем выполнение работы точно в оговоренные сроки</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Портфолио -->
+    <section id="portfolio" class="page">
+        <h2>Портфолио</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x500/667eea/ffffff?text=Свадебное+платье" alt="Свадебное платье">
+                <div class="item-overlay">
+                    <h3>Свадебное платье</h3>
+                    <p>2026, шелк и кружево</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x500/ff9a9e/fecfef?text=Вечернее+платье" alt="Вечернее платье">
+                <div class="item-overlay">
+                    <h3>Вечернее платье</h3>
+                    <p>2025, бархат</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x500/764ba2/ffffff?text=Костюм" alt="Костюм">
+                <div class="item-overlay">
+                    <h3>Бизнес-костюм</h3>
+                    <p>2026, шерсть премиум</p>
+                </div>
+            </div>
+            <!-- Добавь больше фото по необходимости -->
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="page">
+        <h2>Наши услуги</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Пошив на заказ</h3>
+                <p>Индивидуальный пошив платьев, костюмов, верхней одежды от 15 000 ₽</p>
+            </div>
+            <div class="service-card">
+                <h3>Ремонт и перешив</h3>
+                <p>Укорочение, подгонка, обновление гардероба от 1 500 ₽</p>
+            </div>
+            <div class="service-card">
+                <h3>Консультация стилиста</h3>
+                <p>Подбор тканей, фасонов, создание образа 3 000 ₽/час</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Онлайн-заказ -->
+    <section id="order" class="page">
+        <h2>Онлайн-заказ</h2>
+        <form class="order-form">
+            <input type="text" placeholder="Ваше имя" required>
+            <input type="tel" placeholder="Телефон" required>
+            <select required>
+                <option value="">Выберите услугу</option>
+                <option>Пошив на заказ</option>
+                <option>Ремонт одежды</option>
+                <option>Консультация</option>
+            </select>
+            <textarea placeholder="Описание заказа, размеры, пожелания" rows="5" required></textarea>
+            <button type="submit">Отправить заявку</button>
+        </form>
+    </section>
+
+    <!-- Личный кабинет -->
+    <section id="cabinet" class="page">
+        <h2>Личный кабинет</h2>
+        <div class="cabinet">
+            <div class="user-info">
+                <h3>Ваши данные</h3>
+                <p>Вероника Керган</p>
+                <p>+7 (999) 123-45-67</p>
+                <p>verganka@email.com</p>
+            </div>
+            <div class="orders-list">
+                <h3>Ваши заказы</h3>
+                <div class="order-item">
+                    <span>Заказ #001</span>
+                    <span>Свадебное платье — в работе</span>
+                </div>
+                <div class="order-item">
+                    <span>Заказ #002</span>
+                    <span>Ремонт костюма — готов</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contacts" class="page">
+        <h2>Контакты</h2>
+        <div class="contacts-grid">
+            <div class="contact-info">
+                <h3>Адрес</h3>
+                <p>г. Санкт-Петербург, Невский пр., 123</p>
+                <h3>Телефон</h3>
+                <p>+7 (812) 555-01-23</p>
+                <h3>Email</h3>
+                <p>info@moshkina.ru</p>
+            </div>
+            <div class="map-placeholder">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.024139104!2d30.335!3d59.934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4699012f!2sNevsky+Prospect!5e0!3m2!1sru!2sru!4v1600000000000" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
