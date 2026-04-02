@@ -2,189 +2,67 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Enables custom tailoring clients to browse services, view portfolio, place online orders, and manage accounts for personalized garment creation.">
-    <meta name="title" content="Онлайн магазин ателье MoshkinA">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Онлайн магазин ателье MoshkinA">
-    <meta property="og:title" content="Онлайн магазин ателье MoshkinA">
-    <meta property="og:description" content="Enables custom tailoring clients to browse services, view portfolio, place online orders, and manage accounts for personalized garment creation.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://spruce-volume-78087987.figma.site/">
-    <title>Онлайн магазин ателье MoshkinA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoshkinA | Ателье индивидуального пошива</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="container" class="css-uwf2km css-exq74d">
-        
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo" data-page="home">MoshkinA</a>
+            <div class="nav-links" id="navLinks">
+                <a href="#" data-page="home">Главная</a>
+                <a href="#" data-page="portfolio">Портфолио</a>
+                <a href="#" data-page="services">Услуги</a>
+                <a href="#" data-page="order">Онлайн-заказ</a>
+                <a href="#" data-page="account">Личный кабинет</a>
+                <a href="#" data-page="contacts">Контакты</a>
+            </div>
+            <button class="menu-btn" id="menuBtn">☰</button>
+        </div>
+    </nav>
 
-        <nav class="navbar">
-            <div class="nav-container">
-                <h1 class="logo">MoshkinA</h1>
-                <ul class="nav-menu">
-                    <li><a href="#home" class="nav-link active">Главная</a></li>
-                    <li><a href="#portfolio" class="nav-link">Портфолио</a></li>
-                    <li><a href="#services" class="nav-link">Услуги</a></li>
-                    <li><a href="#order" class="nav-link">Онлайн-заказ</a></li>
-                    <li><a href="#cabinet" class="nav-link">Личный кабинет</a></li>
-                    <li><a href="#contacts" class="nav-link">Контакты</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span><span></span><span></span>
+    <main id="app"></main>
+
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>MoshkinA</h3>
+                    <p>Ателье индивидуального пошива с многолетним опытом</p>
+                </div>
+                <div>
+                    <h4>Навигация</h4>
+                    <ul>
+                        <li><a href="#" data-page="portfolio">Портфолио</a></li>
+                        <li><a href="#" data-page="services">Услуги</a></li>
+                        <li><a href="#" data-page="order">Онлайн-заказ</a></li>
+                        <li><a href="#" data-page="contacts">Контакты</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li>Тел: +7 (900) 123-45-67</li>
+                        <li>Email: info@moshkina.ru</li>
+                        <li>Москва, ул. Примерная, д. 1</li>
+                    </ul>
                 </div>
             </div>
-        </nav>
+            <div class="footer-bottom">
+                <p>© 2026 MoshkinA. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
 
-        <div class="pages-container css-j9f0op">
-
-            <!-- Главная -->
-            <section id="home" class="page active">
-                <div class="hero">
-                    <h1>Ателье индивидуального пошива</h1>
-                    <p>Воплощаем ваши мечты о совершенном образе в реальность</p>
-                    <button class="cta-btn" onclick="navigateTo('order')">Заказать сейчас</button>
-                </div>
-                
-                <section class="features-section">
-                    <h2>Почему выбирают нас</h2>
-                    <div class="features-grid">
-                        <div class="feature-card">
-                            <h3>Индивидуальный подход</h3>
-                            <p>Каждое изделие создается с учетом ваших пожеланий и особенностей фигуры</p>
-                        </div>
-                        <div class="feature-card">
-                            <h3>Премиальное качество</h3>
-                            <p>Используем только качественные ткани и материалы от проверенных поставщиков</p>
-                        </div>
-                        <div class="feature-card">
-                            <h3>Соблюдение сроков</h3>
-                            <p>Гарантируем выполнение работы точно в оговоренные сроки</p>
-                        </div>
-                    </div>
-                </section>
-            </section>
-
-            <!-- Портфолио -->
-            <section id="portfolio" class="page">
-                <h2>Портфолио</h2>
-                <p class="section-subtitle">Посмотрите примеры наших лучших работ</p>
-                <div class="portfolio-grid">
-                    <div class="portfolio-item">
-                        <div class="item-image" style="background-image: url('https://via.placeholder.com/400x500/667eea/ffffff?text=Свадебное+платье')"></div>
-                        <div class="item-info">
-                            <h3>Свадебное платье</h3>
-                            <p>Шелк, кружево, 2026</p>
-                        </div>
-                    </div>
-                    <div class="portfolio-item">
-                        <div class="item-image" style="background-image: url('https://via.placeholder.com/400x500/ff9a9e/fecfef?text=Вечернее+платье')"></div>
-                        <div class="item-info">
-                            <h3>Вечернее платье</h3>
-                            <p>Бархат, 2025</p>
-                        </div>
-                    </div>
-                    <div class="portfolio-item">
-                        <div class="item-image" style="background-image: url('https://via.placeholder.com/400x500/764ba2/ffffff?text=Костюм')"></div>
-                        <div class="item-info">
-                            <h3>Бизнес-костюм</h3>
-                            <p>Шерсть премиум, 2026</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Услуги -->
-            <section id="services" class="page">
-                <h2>Наши услуги</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <h3>Пошив на заказ</h3>
-                        <p>Индивидуальный пошив платьев, костюмов, верхней одежды<br><strong>от 15 000 ₽</strong></p>
-                    </div>
-                    <div class="service-card">
-                        <h3>Ремонт и перешив</h3>
-                        <p>Укорочение, подгонка, обновление гардероба<br><strong>от 1 500 ₽</strong></p>
-                    </div>
-                    <div class="service-card">
-                        <h3>Консультация стилиста</h3>
-                        <p>Подбор тканей, фасонов, создание образа<br><strong>3 000 ₽/час</strong></p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Онлайн-заказ -->
-            <section id="order" class="page">
-                <h2>Онлайн-заказ</h2>
-                <form class="order-form">
-                    <input type="text" placeholder="Ваше имя *" required>
-                    <input type="tel" placeholder="Телефон *" required>
-                    <select required>
-                        <option value="">Выберите услугу</option>
-                        <option>Пошив на заказ</option>
-                        <option>Ремонт одежды</option>
-                        <option>Консультация стилиста</option>
-                    </select>
-                    <textarea placeholder="Описание заказа, размеры, пожелания *" rows="6" required></textarea>
-                    <button type="submit" class="submit-btn">Отправить заявку</button>
-                </form>
-            </section>
-
-            <!-- Личный кабинет -->
-            <section id="cabinet" class="page">
-                <h2>Личный кабинет</h2>
-                <div class="cabinet-grid">
-                    <div class="user-profile">
-                        <h3>Ваши данные</h3>
-                        <div class="profile-info">
-                            <p><strong>Вероника Керган</strong></p>
-                            <p>+7 (999) 123-45-67</p>
-                            <p>verganka@email.com</p>
-                        </div>
-                        <button class="profile-btn">Редактировать</button>
-                    </div>
-                    <div class="orders-section">
-                        <h3>Ваши заказы</h3>
-                        <div class="orders-list">
-                            <div class="order-item">
-                                <span class="order-id">#001</span>
-                                <span class="order-status in-progress">В работе</span>
-                                <span class="order-date">Свадебное платье</span>
-                            </div>
-                            <div class="order-item">
-                                <span class="order-id">#002</span>
-                                <span class="order-status completed">Готов</span>
-                                <span class="order-date">Ремонт костюма</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Контакты -->
-            <section id="contacts" class="page">
-                <h2>Контакты</h2>
-                <div class="contacts-grid">
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <h3>Адрес</h3>
-                            <p>г. Санкт-Петербург<br>Невский пр., 123</p>
-                        </div>
-                        <div class="contact-item">
-                            <h3>Телефон</h3>
-                            <p>+7 (812) 555-01-23</p>
-                        </div>
-                        <div class="contact-item">
-                            <h3>Email</h3>
-                            <p>info@moshkina.ru</p>
-                        </div>
-                    </div>
-                    <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.024139104!2d30.335!3d59.934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4699012f!2sNevsky+Prospect!5e0!3m2!1sru!2sru!4v1600000000000" 
-                                width="100%" height="350" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                </div>
-            </section>
-
+    <!-- Модальное окно для уведомлений -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <h3 id="modalTitle"></h3>
+            <p id="modalMessage"></p>
+            <button class="modal-btn" id="modalConfirm">Закрыть</button>
         </div>
     </div>
 
