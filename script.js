@@ -34,43 +34,43 @@ const pages = {
             <div class="hero-bg"></div>
             <div class="hero-overlay"></div>
             <div class="container hero-content">
-                <h1>Ателье индивидуального пошива</h1>
-                <p>Воплощаем ваши мечты о совершенном образе в реальность</p>
-                <button class="btn-hero" onclick="navigateTo('order')">Оформить заказ →</button>
+                <h1>Услуги</h1>
+                <p>Индивидуальный пошив в Санкт-Петербурге</p>
+                <button class="btn-hero" onclick="navigateTo('order')">Оформить заказ</button>
             </div>
         </section>
         <section class="features">
             <div class="container">
-                <h2>Почему выбирают нас</h2>
+                <h2>Ателье предлагает</h2>
                 <div class="features-grid">
-                    <div class="feature-card"><div class="feature-icon">✂️</div><h3>Индивидуальный подход</h3><p>Каждое изделие создается с учетом ваших пожеланий и особенностей фигуры</p></div>
-                    <div class="feature-card"><div class="feature-icon">✨</div><h3>Премиальное качество</h3><p>Используем только качественные ткани и материалы от проверенных поставщиков</p></div>
-                    <div class="feature-card"><div class="feature-icon">⏰</div><h3>Соблюдение сроков</h3><p>Гарантируем выполнение работы точно в оговоренные сроки</p></div>
+                    <div class="feature-card"><div class="feature-icon">✂</div><h3>Разработка эскиза</h3><p>Учитываем ваш стиль, повод и особенности посадки</p></div>
+                    <div class="feature-card"><div class="feature-icon">🧵</div><h3>Подбор тканей</h3><p>Работаем с качественными материалами и фурнитурой</p></div>
+                    <div class="feature-card"><div class="feature-icon">🪡</div><h3>Ремонт и посадка</h3><p>Подгонка готовых вещей и бережная реставрация</p></div>
                 </div>
             </div>
         </section>
         <section class="portfolio-section">
             <div class="container">
-                <h2>Наши работы</h2>
-                <p class="text-center text-gray-600 mb-12">Посмотрите примеры наших лучших работ</p>
+                <h2>Портфолио</h2>
+                <p class="text-center text-gray-600 mb-12">Здесь вы можете посмотреть лучшие работы ателье</p>
                 <div class="portfolio-grid">
                     ${portfolioItems.slice(0,3).map(item => `
                         <div class="portfolio-item"><img src="${item.image}" alt="${item.title}"><div class="portfolio-overlay"><span>${item.title}</span></div></div>
                     `).join('')}
                 </div>
-                <div class="text-center"><button class="btn-portfolio" onclick="navigateTo('portfolio')">Посмотреть все работы →</button></div>
+                <div class="text-center"><button class="btn-portfolio" onclick="navigateTo('portfolio')">Смотреть портфолио</button></div>
             </div>
         </section>
         <section class="cta">
-            <div class="container"><h2>Готовы создать свой идеальный образ?</h2><p>Свяжитесь с нами сегодня для консультации</p>
-            <div class="cta-buttons"><button class="btn-primary" onclick="navigateTo('order')">Оформить заказ</button><button class="btn-secondary" onclick="navigateTo('contacts')">Связаться с нами</button></div></div>
+            <div class="container"><h2>Нужен индивидуальный заказ?</h2><p>Опишите идею и мы предложим решение под ваш образ</p>
+            <div class="cta-buttons"><button class="btn-primary" onclick="navigateTo('order')">Заполнить форму</button><button class="btn-secondary" onclick="navigateTo('contacts')">Наши контакты</button></div></div>
         </section>
     `,
     
     portfolio: () => `
         <div class="container py-20">
             <h1>Портфолио</h1>
-            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Каждая работа создается с любовью и вниманием к деталям.</p>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Личные проекты, авторские детали, точная посадка.</p>
             <div class="tabs-list" id="portfolioTabs">
                 <button class="tab-trigger active" data-cat="all">Все работы</button>
                 <button class="tab-trigger" data-cat="wedding">Свадебные</button>
@@ -84,7 +84,7 @@ const pages = {
     services: () => `
         <div class="container py-20">
             <h1>Наши услуги</h1>
-            <p class="text-center text-gray-600 mb-12">Мы предлагаем полный спектр услуг по индивидуальному пошиву</p>
+            <p class="text-center text-gray-600 mb-12">Полный цикл работ: от идеи до готового изделия</p>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 ${servicesData.map(s => `
                     <div class="card"><div style="height:200px; overflow:hidden;"><img src="${s.image}" style="width:100%; height:100%; object-fit:cover;"></div>
@@ -99,7 +99,7 @@ const pages = {
     order: () => `
         <div class="container py-20" style="max-width:800px;">
             <h1>Онлайн-заказ</h1>
-            <p class="text-center text-gray-600 mb-12">Заполните форму, и мы свяжемся с вами для обсуждения деталей</p>
+            <p class="text-center text-gray-600 mb-12">Шаг 1: выберите услугу. Шаг 2: опишите фасон и мерки. Шаг 3: оставьте контакты.</p>
             <div class="card"><div class="card-header"><h3 class="card-title">Форма заказа</h3><p class="card-desc">Пожалуйста, укажите все необходимые данные</p></div>
             <div class="card-content"><form id="orderForm"><div class="form-group"><label>Имя и фамилия *</label><input type="text" id="orderName" required></div>
             <div class="grid-cols-2 md-cols-2"><div class="form-group"><label>Телефон *</label><input type="tel" id="orderPhone" required></div>
@@ -121,7 +121,7 @@ const pages = {
             `;
         }
         return `
-            <div class="container py-20"><div class="flex justify-between items-center mb-8"><div><h1>Личный кабинет</h1><p class="text-gray-600">Добро пожаловать, ${userData.name}!</p></div>
+            <div class="container py-20"><div class="flex justify-between items-center mb-8"><div><h1>Личный кабинет</h1><p class="text-gray-600">Добро пожаловать, ${userData.name}</p></div>
             <button class="btn-secondary" onclick="logout()">Выйти</button></div>
             <div class="tabs-list"><button class="tab-trigger active" data-tab="orders">Мои заказы</button><button class="tab-trigger" data-tab="profile">Профиль</button></div>
             <div id="ordersTab" class="tab-content active"><div class="card"><div class="card-header"><h3 class="card-title">История заказов</h3></div>
@@ -138,7 +138,7 @@ const pages = {
     },
     
     contacts: () => `
-        <section class="bg-gray-900 text-white py-20 px-4"><div class="container text-center"><h1>Контакты</h1><p class="text-xl text-gray-300">Свяжитесь с нами удобным для вас способом</p></div></section>
+        <section class="py-20 px-4" style="background:linear-gradient(180deg, rgba(56,78,135,0.95), rgba(56,78,135,0.95)), url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1920&h=700&fit=crop') center/cover;"><div class="container text-center"><h1 style="color:#fff;">Контакты</h1><p style="color:#dbe4ff;">Свяжитесь с нами через удобный мессенджер</p></div></section>
         <section class="py-16 px-4 bg-gray-50"><div class="container"><div class="grid md:grid-cols-4 gap-6">
             <div class="card"><div class="card-content text-center"><div class="feature-icon mx-auto mb-4">📍</div><h3>Адрес</h3><p class="text-gray-600">г. Москва, ул. Примерная, д. 1</p></div></div>
             <div class="card"><div class="card-content text-center"><div class="feature-icon mx-auto mb-4">📞</div><h3>Телефон</h3><p class="text-gray-600">+7 (900) 123-45-67</p></div></div>
