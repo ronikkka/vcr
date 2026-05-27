@@ -54,7 +54,7 @@ h1, h2, h3, h4, p, li, label, input, select, textarea, button, a {
     text-decoration: none;
     color: #fff;
     font-family: "Marck Script", cursive;
-    font-size: 52px;
+    font-size: 54px;
     line-height: 1;
     text-align: center;
 }
@@ -70,13 +70,11 @@ h1, h2, h3, h4, p, li, label, input, select, textarea, button, a {
     text-decoration: none;
     font-size: 24px;
     line-height: 1;
-    border-bottom: 2px solid transparent;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
     color: #fff;
-    border-color: #fff;
 }
 
 .menu-btn {
