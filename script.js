@@ -281,6 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Мобильное меню
     const menuBtn = document.getElementById('menuBtn');
     const navLinks = document.getElementById('navLinks');
+    const logoLink = document.querySelector('.logo');
     menuBtn?.addEventListener('click', () => navLinks.classList.toggle('active'));
     
     // Навигация по кликам
@@ -290,6 +291,12 @@ document.addEventListener('DOMContentLoaded', () => {
             navigateTo(link.dataset.page);
             navLinks.classList.remove('active');
         });
+    });
+
+    logoLink?.addEventListener('click', (e) => {
+        e.preventDefault();
+        navigateTo('home');
+        navLinks.classList.remove('active');
     });
     
     // Модальное окно

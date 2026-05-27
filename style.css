@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Marck+Script&display=swap');
 
 * {
     margin: 0;
@@ -51,15 +51,19 @@ h1, h2, h3, h4, p, li, label, input, select, textarea, button, a {
 .logo {
     text-decoration: none;
     color: #fff;
-    font-size: 42px;
-    line-height: 0.8;
+    font-family: "Marck Script", cursive;
+    font-size: 52px;
+    line-height: 0.85;
     text-align: center;
+    justify-self: center;
+    grid-column: 2;
 }
 
 .nav-links {
     display: none;
     justify-self: start;
     gap: 18px;
+    grid-column: 1;
 }
 
 .nav-links a {
@@ -78,6 +82,7 @@ h1, h2, h3, h4, p, li, label, input, select, textarea, button, a {
 
 .menu-btn {
     justify-self: end;
+    grid-column: 3;
     background: transparent;
     color: #fff;
     border: 2px solid rgba(255, 255, 255, 0.55);
