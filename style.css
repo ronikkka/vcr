@@ -203,7 +203,7 @@ h1, h2, h3, h4 {
 }
 
 .hero-home .hero-bg {
-    background-image: url('images/fon1.jpg');
+    background-image: url('images/fon2.jpeg');
     transform: rotate(90deg) scale(1.65);
     transform-origin: center center;
 }
