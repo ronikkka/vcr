@@ -54,7 +54,7 @@ h1, h2, h3, h4, p, li, label, input, select, textarea, button, a {
     text-decoration: none;
     color: #fff;
     font-family: "Marck Script", cursive;
-    font-size: 54px;
+    font-size: 62px;
     line-height: 1;
     text-align: center;
 }
@@ -75,6 +75,12 @@ h1, h2, h3, h4, p, li, label, input, select, textarea, button, a {
 .nav-links a:hover,
 .nav-links a.active {
     color: #fff;
+}
+
+.nav-links a[data-page="home"],
+.nav-links a[data-page="home"].active,
+.nav-links a[data-page="home"]:hover {
+    color: #dce3ff;
 }
 
 .menu-btn {
