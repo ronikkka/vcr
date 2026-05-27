@@ -7,16 +7,24 @@
 }
 
 :root {
-    --ink: #24396e;
-    --ink-soft: #37508f;
-    --paper: #f5f5f5;
-    --line: #3e548c;
+    --ivory: #fffbf7;
+    --ivory-warm: #f5ebe3;
+    --pink-soft: #e8c9cf;
+    --pink-accent: #a65d6a;
+    --pink-deep: #7a4552;
+    --ink: #3d2f33;
+    --ink-soft: #b76e7a;
+    --paper: var(--ivory);
+    --line: #c9a0a8;
+    --text-muted: #6b5559;
+    --text-on-accent: #ffffff;
+    --text-on-accent-soft: #fff0f2;
 }
 
 body {
     font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
-    background: #f2f2f2;
-    color: #1d2e57;
+    background: var(--ivory-warm);
+    color: var(--ink);
     line-height: 1.35;
 }
 
@@ -31,10 +39,15 @@ h1, h2, h3, h4, p, li, label, input, select, textarea, button, a {
     font-weight: 400;
 }
 
+h1, h2, h3, h4 {
+    color: var(--ink);
+    font-weight: 600;
+}
+
 .navbar {
-    background: var(--ink);
-    color: #fff;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.18);
+    background: var(--pink-accent);
+    color: var(--text-on-accent);
+    border-bottom: 2px solid rgba(122, 69, 82, 0.25);
     position: sticky;
     top: 0;
     z-index: 50;
@@ -66,21 +79,22 @@ h1, h2, h3, h4, p, li, label, input, select, textarea, button, a {
 }
 
 .nav-links a {
-    color: #dce3ff;
+    color: var(--text-on-accent-soft);
     text-decoration: none;
     font-size: 24px;
     line-height: 1;
+    font-weight: 500;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: #fff;
+    color: var(--text-on-accent);
 }
 
 .nav-links a[data-page="home"]:not(.logo),
 .nav-links a[data-page="home"]:not(.logo).active,
 .nav-links a[data-page="home"]:not(.logo):hover {
-    color: #dce3ff;
+    color: var(--text-on-accent-soft);
 }
 
 .menu-btn {
@@ -102,7 +116,7 @@ h1, h2, h3, h4, p, li, label, input, select, textarea, button, a {
     right: 10px;
     top: 78px;
     background: var(--ink);
-    border: 2px solid #8196ca;
+    border: 2px solid var(--pink-deep);
     border-radius: 12px;
     padding: 12px;
 }
@@ -133,10 +147,11 @@ h1, h2, h3, h4, p, li, label, input, select, textarea, button, a {
     min-height: 46px;
     padding: 0 22px;
     border-radius: 16px;
-    border: 2px solid var(--line);
-    background: var(--ink-soft);
-    color: #fff;
+    border: 2px solid var(--pink-deep);
+    background: var(--pink-accent);
+    color: var(--text-on-accent);
     font-size: 20px;
+    font-weight: 500;
     cursor: pointer;
 }
 
@@ -145,8 +160,9 @@ h1, h2, h3, h4, p, li, label, input, select, textarea, button, a {
 }
 
 .btn-secondary, .btn-outline, .btn-portfolio {
-    background: #fff;
-    color: var(--ink);
+    background: var(--ivory);
+    color: var(--pink-deep);
+    border-color: var(--pink-deep);
 }
 
 .hero {
@@ -167,7 +183,12 @@ h1, h2, h3, h4, p, li, label, input, select, textarea, button, a {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(243, 243, 243, 0.96) 0%, rgba(243, 243, 243, 0.7) 42%, rgba(36, 57, 110, 0.12) 100%);
+    background: linear-gradient(90deg, rgba(255, 251, 247, 0.96) 0%, rgba(245, 235, 227, 0.82) 42%, rgba(232, 201, 207, 0.2) 100%);
+}
+
+.hero-content h1,
+.hero-content p {
+    color: var(--ink);
 }
 
 .hero-content {
@@ -205,8 +226,9 @@ h1, h2, h3, h4, p, li, label, input, select, textarea, button, a {
 
 .feature-card, .card {
     border: 3px solid var(--line);
-    background: #fff;
+    background: var(--ivory);
     border-radius: 2px;
+    color: var(--ink);
 }
 
 .feature-card {
@@ -227,6 +249,7 @@ h1, h2, h3, h4, p, li, label, input, select, textarea, button, a {
 
 .feature-card p, .card-desc {
     font-size: 18px;
+    color: var(--text-muted);
 }
 
 .portfolio-grid {
@@ -253,8 +276,8 @@ h1, h2, h3, h4, p, li, label, input, select, textarea, button, a {
 .portfolio-overlay {
     position: absolute;
     inset: auto 0 0 0;
-    background: linear-gradient(180deg, transparent 0%, rgba(36, 57, 110, 0.72) 100%);
-    color: #fff;
+    background: linear-gradient(180deg, transparent 0%, rgba(122, 69, 82, 0.85) 100%);
+    color: var(--text-on-accent);
     padding: 14px;
 }
 
@@ -267,13 +290,17 @@ h1, h2, h3, h4, p, li, label, input, select, textarea, button, a {
 }
 
 .text-gray-600 {
-    color: #4e5f8f;
+    color: var(--text-muted);
     font-size: 18px;
 }
 
 .cta {
-    background: var(--ink);
-    color: #fff;
+    background: var(--pink-accent);
+    color: var(--text-on-accent);
+}
+
+.cta h2 {
+    color: var(--text-on-accent);
 }
 
 .cta p {
@@ -291,8 +318,8 @@ h1, h2, h3, h4, p, li, label, input, select, textarea, button, a {
 }
 
 .footer {
-    background: #e9edf8;
-    border-top: 2px solid #c5d0ee;
+    background: var(--ivory);
+    border-top: 2px solid var(--pink-soft);
 }
 
 .footer-grid {
@@ -308,13 +335,18 @@ h1, h2, h3, h4, p, li, label, input, select, textarea, button, a {
 
 .footer p, .footer li, .footer a {
     font-size: 17px;
-    color: #3b4f84;
+    color: var(--text-muted);
     text-decoration: none;
     list-style: none;
 }
 
+.footer h3, .footer h4 {
+    color: var(--ink);
+}
+
 .footer-bottom {
-    border-top: 2px solid #c5d0ee;
+    border-top: 2px solid var(--pink-soft);
+    color: var(--text-muted);
     margin-top: 16px;
     padding-top: 12px;
 }
@@ -332,7 +364,7 @@ h1, h2, h3, h4, p, li, label, input, select, textarea, button, a {
 
 .tab-trigger {
     border: 2px solid var(--line);
-    background: #fff;
+    background: var(--ivory);
     color: var(--ink);
     border-radius: 10px;
     padding: 7px 14px;
@@ -341,8 +373,9 @@ h1, h2, h3, h4, p, li, label, input, select, textarea, button, a {
 }
 
 .tab-trigger.active {
-    background: var(--ink-soft);
-    color: #fff;
+    background: var(--pink-accent);
+    color: var(--text-on-accent);
+    border-color: var(--pink-deep);
 }
 
 .tab-content {
@@ -379,6 +412,39 @@ input, select, textarea {
     gap: 10px;
 }
 
+.measurements-block {
+    border: 2px solid var(--line);
+    border-radius: 10px;
+    padding: 16px 18px 8px;
+    margin-bottom: 16px;
+    background: var(--ivory-warm);
+}
+
+.measurements-block legend {
+    color: var(--ink);
+    font-size: 20px;
+    font-weight: 600;
+    padding: 0 8px;
+}
+
+.measurements-hint {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.measurements-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+@media (min-width: 600px) {
+    .measurements-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
 .badge {
     border: 2px solid var(--line);
     border-radius: 999px;
@@ -386,7 +452,7 @@ input, select, textarea {
     padding: 2px 12px;
 }
 
-.badge-blue { background: #dce6ff; color: #274696; }
+.badge-blue { background: #f5e0e4; color: var(--pink-deep); }
 .badge-green { background: #d8f4e4; color: #1b7a46; }
 .badge-yellow { background: #fff5cf; color: #8e6710; }
 .badge-gray { background: #ecedf1; color: #3e4a64; }
@@ -395,7 +461,7 @@ input, select, textarea {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(18, 27, 58, 0.56);
+    background: rgba(61, 47, 51, 0.5);
     align-items: center;
     justify-content: center;
     z-index: 100;
@@ -407,10 +473,11 @@ input, select, textarea {
 
 .modal-content {
     width: min(540px, 92%);
-    background: #fff;
+    background: var(--ivory);
     border: 3px solid var(--line);
     padding: 16px;
     position: relative;
+    color: var(--ink);
 }
 
 .modal-close {
@@ -435,6 +502,26 @@ input, select, textarea {
 
 .py-20 {
     padding: 44px 0;
+}
+
+.py-20 h1,
+.py-20 h2 {
+    color: var(--ink);
+}
+
+.contacts-hero {
+    background:
+        linear-gradient(180deg, rgba(166, 93, 106, 0.92), rgba(122, 69, 82, 0.92)),
+        url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1920&h=700&fit=crop') center/cover;
+}
+
+.contacts-hero h1,
+.contacts-hero p {
+    color: var(--text-on-accent);
+}
+
+.bg-gray-50 {
+    background: var(--ivory-warm);
 }
 
 .mb-4 { margin-bottom: 10px; }

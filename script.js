@@ -105,6 +105,24 @@ const pages = {
             <div class="grid-cols-2 md-cols-2"><div class="form-group"><label>Телефон *</label><input type="tel" id="orderPhone" required></div>
             <div class="form-group"><label>Email *</label><input type="email" id="orderEmail" required></div></div>
             <div class="form-group"><label>Тип услуги *</label><select id="orderService"><option value="wedding">Свадебное платье</option><option value="evening">Вечернее платье</option><option value="suit">Мужской костюм</option></select></div>
+            <fieldset class="measurements-block">
+                <legend>Базовые мерки</legend>
+                <p class="measurements-hint">Укажите размеры в сантиметрах (при наличии)</p>
+                <div class="measurements-grid">
+                    <div class="form-group">
+                        <label for="orderChest">Обхват груди (ОГ)</label>
+                        <input type="number" id="orderChest" name="chest" min="40" max="200" step="0.5" placeholder="88">
+                    </div>
+                    <div class="form-group">
+                        <label for="orderWaist">Обхват талии (ОТ)</label>
+                        <input type="number" id="orderWaist" name="waist" min="40" max="200" step="0.5" placeholder="76">
+                    </div>
+                    <div class="form-group">
+                        <label for="orderHips">Обхват бёдер (ОБ)</label>
+                        <input type="number" id="orderHips" name="hips" min="40" max="200" step="0.5" placeholder="92">
+                    </div>
+                </div>
+            </fieldset>
             <div class="form-group"><label>Описание заказа *</label><textarea id="orderDesc" rows="4" required></textarea></div>
             <button type="submit" class="btn-primary" style="width:100%;">Отправить заказ</button></form></div></div></div>
     `,
@@ -138,7 +156,7 @@ const pages = {
     },
     
     contacts: () => `
-        <section class="py-20 px-4" style="background:linear-gradient(180deg, rgba(56,78,135,0.95), rgba(56,78,135,0.95)), url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1920&h=700&fit=crop') center/cover;"><div class="container text-center"><h1 style="color:#fff;">Контакты</h1><p style="color:#dbe4ff;">Свяжитесь с нами через удобный мессенджер</p></div></section>
+        <section class="py-20 px-4 contacts-hero"><div class="container text-center"><h1>Контакты</h1><p>Свяжитесь с нами через удобный мессенджер</p></div></section>
         <section class="py-16 px-4 bg-gray-50"><div class="container"><div class="grid md:grid-cols-4 gap-6">
             <div class="card"><div class="card-content text-center"><div class="feature-icon mx-auto mb-4">📍</div><h3>Адрес</h3><p class="text-gray-600">г. Москва, ул. Примерная, д. 1</p></div></div>
             <div class="card"><div class="card-content text-center"><div class="feature-icon mx-auto mb-4">📞</div><h3>Телефон</h3><p class="text-gray-600">+7 (900) 123-45-67</p></div></div>
