@@ -1,4 +1,6 @@
 // ========== ДАННЫЕ ==========
+const ORDER_FORM_URL = 'https://script.google.com/macros/s/AKfycbz_Eu4qGlU2_6q5mbZnhtJyNJ9jIVtSJZTyxF_35hw_qLPiZamc7LaFr_WC6KIRccbyqw/exec';
+
 const userData = {
     name: "Иван Иванов",
     email: "ivan@example.com",
@@ -281,10 +283,48 @@ function handleLogin(e) {
     }
 }
 
-function handleOrderSubmit(e) {
+async function handleOrderSubmit(e) {
     e.preventDefault();
-    showModal('Заказ отправлен!', 'Спасибо за ваш заказ. Наш менеджер свяжется с вами в течение 24 часов.');
-    e.target.reset();
+
+    const form = e.target;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const serviceSelect = document.getElementById('orderService');
+
+    const payload = new FormData();
+    payload.append('name', document.getElementById('orderName').value.trim());
+    payload.append('phone', document.getElementById('orderPhone').value.trim());
+    payload.append('email', document.getElementById('orderEmail').value.trim());
+    payload.append('service', serviceSelect.value);
+    payload.append('serviceLabel', serviceSelect.options[serviceSelect.selectedIndex].text);
+    payload.append('chest', document.getElementById('orderChest').value || '');
+    payload.append('waist', document.getElementById('orderWaist').value || '');
+    payload.append('hips', document.getElementById('orderHips').value || '');
+    payload.append('description', document.getElementById('orderDesc').value.trim());
+    payload.append('source', 'online-order');
+
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Отправка...';
+    }
+
+    try {
+        await fetch(ORDER_FORM_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: payload
+        });
+
+        showModal('Заказ отправлен!', 'Спасибо за ваш заказ. Наш менеджер свяжется с вами в течение 24 часов.');
+        form.reset();
+    } catch (error) {
+        console.error('Order submit error:', error);
+        showModal('Ошибка отправки', 'Не удалось отправить заказ. Проверьте интернет и попробуйте ещё раз.');
+    } finally {
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Отправить заказ';
+        }
+    }
 }
 
 function handleContactSubmit(e) {
