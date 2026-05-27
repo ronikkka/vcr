@@ -30,13 +30,12 @@ function showToast(message, isError = false) {
 // ========== КОМПОНЕНТЫ СТРАНИЦ ==========
 const pages = {
     home: () => `
-        <section class="hero">
+        <section class="hero hero-home">
             <div class="hero-bg"></div>
             <div class="hero-overlay"></div>
             <div class="container hero-content">
-                <h1>Услуги</h1>
-                <p>Индивидуальный пошив в Санкт-Петербурге</p>
-                <button class="btn-hero" onclick="navigateTo('order')">Оформить заказ</button>
+                <h1>Индивидуальный пошив в Санкт-Петербурге</h1>
+                <button class="btn-hero btn-hero-home" onclick="navigateTo('order')">Оформить заказ</button>
             </div>
         </section>
         <section class="features">
