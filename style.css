@@ -199,11 +199,13 @@ h1, h2, h3, h4 {
     width: 100%;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .hero-home .hero-bg {
     background-image: url('images/fon1.jpg');
-    transform: scaleX(-1);
+    transform: rotate(90deg) scale(1.65);
+    transform-origin: center center;
 }
 
 .hero-home .hero-overlay {
