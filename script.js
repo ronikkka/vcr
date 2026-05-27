@@ -290,17 +290,17 @@ async function handleOrderSubmit(e) {
     const submitBtn = form.querySelector('button[type="submit"]');
     const serviceSelect = document.getElementById('orderService');
 
+    // Имена полей должны совпадать с заголовками в Google Таблице
     const payload = new FormData();
-    payload.append('name', document.getElementById('orderName').value.trim());
+    payload.append('Timestamp', new Date().toISOString());
+    payload.append('full_name', document.getElementById('orderName').value.trim());
     payload.append('phone', document.getElementById('orderPhone').value.trim());
     payload.append('email', document.getElementById('orderEmail').value.trim());
-    payload.append('service', serviceSelect.value);
-    payload.append('serviceLabel', serviceSelect.options[serviceSelect.selectedIndex].text);
+    payload.append('service_type', serviceSelect.options[serviceSelect.selectedIndex].text);
     payload.append('chest', document.getElementById('orderChest').value || '');
     payload.append('waist', document.getElementById('orderWaist').value || '');
     payload.append('hips', document.getElementById('orderHips').value || '');
-    payload.append('description', document.getElementById('orderDesc').value.trim());
-    payload.append('source', 'online-order');
+    payload.append('order_description', document.getElementById('orderDesc').value.trim());
 
     if (submitBtn) {
         submitBtn.disabled = true;

@@ -1,12 +1,6 @@
 /**
- * Вставьте этот код в Google Apps Script (Расширения → Apps Script),
- * привяжите к Google Таблице и разверните как веб-приложение:
- * Развернуть → Новое развертывание → Веб-приложение
- * - Выполнять от имени: Я
- * - Доступ: Все
- *
- * Заголовки строки 1 в таблице:
- * Дата | Имя | Телефон | Email | Услуга | ОГ | ОТ | ОБ | Описание | Источник
+ * Код для Google Apps Script — имена полей как в таблице:
+ * Timestamp | full_name | phone | email | service_type | chest | waist | hips | order_description
  */
 
 function doPost(e) {
@@ -15,16 +9,15 @@ function doPost(e) {
     const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
 
     sheet.appendRow([
-      new Date(),
-      p.name || '',
+      p.Timestamp ? new Date(p.Timestamp) : new Date(),
+      p.full_name || '',
       p.phone || '',
       p.email || '',
-      p.serviceLabel || p.service || '',
+      p.service_type || '',
       p.chest || '',
       p.waist || '',
       p.hips || '',
-      p.description || '',
-      p.source || 'online-order'
+      p.order_description || ''
     ]);
 
     return ContentService
