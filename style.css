@@ -52,9 +52,9 @@ h1, h2, h3, h4, p, li, label, input, select, textarea, button, a {
 
 .logo {
     text-decoration: none;
-    color: #fff;
+    color: #ffffff;
     font-family: "Marck Script", cursive;
-    font-size: 62px;
+    font-size: 74px;
     line-height: 1;
     text-align: center;
 }
@@ -77,9 +77,9 @@ h1, h2, h3, h4, p, li, label, input, select, textarea, button, a {
     color: #fff;
 }
 
-.nav-links a[data-page="home"],
-.nav-links a[data-page="home"].active,
-.nav-links a[data-page="home"]:hover {
+.nav-links a[data-page="home"]:not(.logo),
+.nav-links a[data-page="home"]:not(.logo).active,
+.nav-links a[data-page="home"]:not(.logo):hover {
     color: #dce3ff;
 }
 
