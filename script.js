@@ -376,7 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const accountLink =
             event.target.closest('[data-page="account"]');
 
-        if (!accountLink) return;
+        if (!accountLink || isLoggedIn) return;
 
         event.preventDefault();
         event.stopImmediatePropagation();
@@ -407,3 +407,28 @@ document.addEventListener('DOMContentLoaded', () => {
         if (outside) dialog.close();
     });
 })();
+
+window.addEventListener("message", (event) => {
+    const dialog = document.getElementById("authDialog");
+    const frame = document.getElementById("authFrame");
+
+    if (!dialog || !frame) return;
+
+    if (event.origin !== window.location.origin) return;
+    if (event.source !== frame.contentWindow) return;
+    if (!dialog.open) return;
+
+    if (
+        !event.data ||
+        event.data.type !== "atelier:demo-login-complete"
+    ) {
+        return;
+    }
+
+    isLoggedIn = true;
+
+    dialog.close();
+    navigateTo("account");
+
+    frame.removeAttribute("src");
+});

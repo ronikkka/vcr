@@ -1,5 +1,8 @@
 ﻿@page "/"
 
+@using Microsoft.JSInterop
+@inject IJSRuntime JS
+
 <PageTitle>Вход — MoshkinA</PageTitle>
 
 <div class="demo-page">
@@ -44,9 +47,12 @@
                        autocomplete="current-password"
                        required />
 
-                <button type="submit" class="auth-button">
-                    Войти
+                <button type="submit"
+                        class="auth-button"
+                        disabled="@isSubmitting">
+                    @(isSubmitting ? "Переход в личный кабинет…" : "Войти")
                 </button>
+                
             </form>
 
             @if (!string.IsNullOrEmpty(message))
@@ -63,6 +69,7 @@
 
 @code {
     private bool isOpen = true;
+    private bool isSubmitting = false;
     private string login = "";
     private string password = "";
     private string message = "";
@@ -72,17 +79,22 @@
         login = "";
         password = "";
         message = "";
+        isSubmitting = false;
         isOpen = true;
     }
 
     private void Close()
     {
+        if (isSubmitting) return;
+
         password = "";
         isOpen = false;
     }
 
-    private void Submit()
+    private async Task Submit()
     {
+        if (isSubmitting) return;
+
         if (string.IsNullOrWhiteSpace(login) ||
             string.IsNullOrWhiteSpace(password))
         {
@@ -90,7 +102,21 @@
             return;
         }
 
-        message = $"{login}, форма отправлена.";
+        isSubmitting = true;
+        message = "Вход успешно завершен";
         password = "";
+
+        try
+        {
+            StateHasChanged();
+
+            await Task.Delay(1500);
+
+            await JS.InvokeVoidAsync("authBridge.completeDemoLogin");
+        }
+        finally
+        {
+            isSubmitting = false;
+        }
     }
 }
