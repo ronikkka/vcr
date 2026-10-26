@@ -1,0 +1,97 @@
+﻿@page "/"
+
+<PageTitle>Вход — MoshkinA</PageTitle>
+
+<div class="demo-page">
+    <h1>MoshkinA</h1>
+    <p>Учебная форма входа на C#</p>
+
+    <button type="button" class="auth-button" @onclick="Open">
+        Открыть окно входа
+    </button>
+</div>
+
+@if (isOpen)
+{
+    <div class="auth-overlay">
+        <section class="auth-window"
+                 role="dialog"
+                 aria-modal="true"
+                 aria-labelledby="auth-title">
+
+            <button type="button"
+                    class="auth-close"
+                    aria-label="Закрыть окно"
+                    @onclick="Close">
+                ×
+            </button>
+
+            <h2 id="auth-title">Вход в личный кабинет</h2>
+            <p>Введите логин и пароль</p>
+
+            <form @onsubmit="Submit" @onsubmit:preventDefault>
+                <label for="auth-login">Логин</label>
+                <input id="auth-login"
+                       type="text"
+                       @bind="login"
+                       autocomplete="username"
+                       required />
+
+                <label for="auth-password">Пароль</label>
+                <input id="auth-password"
+                       type="password"
+                       @bind="password"
+                       autocomplete="current-password"
+                       required />
+
+                <button type="submit" class="auth-button">
+                    Войти
+                </button>
+            </form>
+
+            @if (!string.IsNullOrEmpty(message))
+            {
+                <p class="auth-message" role="status">@message</p>
+            }
+
+            <p class="auth-note">
+                Учебный пример. Не вводите настоящий пароль.
+                Вход в реальную учётную запись не выполняется.
+            </p>
+        </section>
+    </div>
+}
+
+@code {
+    private bool isOpen = true;
+    private string login = "";
+    private string password = "";
+    private string message = "";
+
+    private void Open()
+    {
+        login = "";
+        password = "";
+        message = "";
+        isOpen = true;
+    }
+
+    private void Close()
+    {
+        password = "";
+        isOpen = false;
+    }
+
+    private void Submit()
+    {
+        if (string.IsNullOrWhiteSpace(login) ||
+            string.IsNullOrWhiteSpace(password))
+        {
+            message = "Заполните логин и пароль.";
+            return;
+        }
+
+        message = $"Данные получены, {login}! Обработчик C# сработал.";
+        password = "";
+    }
+}

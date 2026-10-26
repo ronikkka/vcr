@@ -362,3 +362,48 @@ document.addEventListener('DOMContentLoaded', () => {
     window.showModal = showModal;
     window.logout = logout;
 });
+
+(() => {
+    const dialog = document.getElementById('authDialog');
+    const frame = document.getElementById('authFrame');
+    const closeButton = document.getElementById('closeAuthDialog');
+
+    if (!dialog || !frame || !closeButton) return;
+
+    window.addEventListener('click', (event) => {
+        if (!(event.target instanceof Element)) return;
+
+        const accountLink =
+            event.target.closest('[data-page="account"]');
+
+        if (!accountLink) return;
+
+        event.preventDefault();
+        event.stopImmediatePropagation();
+
+        if (!frame.hasAttribute('src')) {
+            frame.src = '/auth/';
+        }
+
+        if (!dialog.open) {
+            dialog.showModal();
+        }
+    }, true);
+
+    closeButton.addEventListener('click', () => {
+        dialog.close();
+    });
+
+    dialog.addEventListener('click', (event) => {
+        if (event.target !== dialog) return;
+
+        const bounds = dialog.getBoundingClientRect();
+        const outside =
+            event.clientX < bounds.left ||
+            event.clientX > bounds.right ||
+            event.clientY < bounds.top ||
+            event.clientY > bounds.bottom;
+
+        if (outside) dialog.close();
+    });
+})();
