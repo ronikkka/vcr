@@ -1,4 +1,4 @@
-// ========== ДАННЫЕ ==========
+
 const ORDER_FORM_URL = 'https://script.google.com/macros/s/AKfycbz_Eu4qGlU2_6q5mbZnhtJyNJ9jIVtSJZTyxF_35hw_qLPiZamc7LaFr_WC6KIRccbyqw/exec';
 
 const userData = {
@@ -8,11 +8,9 @@ const userData = {
     memberSince: "Январь 2024"
 };
 
-// ========== СОСТОЯНИЕ ==========
 let currentPage = 'home';
 let isLoggedIn = false;
 
-// ========== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ==========
 function showModal(title, message) {
     const modal = document.getElementById('modal');
     document.getElementById('modalTitle').textContent = title;
@@ -29,7 +27,6 @@ function showToast(message, isError = false) {
     alert(message);
 }
 
-// ========== КОМПОНЕНТЫ СТРАНИЦ ==========
 const pages = {
     home: () => `
         <section class="hero hero-home">
@@ -174,7 +171,6 @@ const pages = {
     `
 };
 
-// Данные портфолио
 const portfolioItems = [
     { id: 1, category: "wedding", title: "Свадебное платье", image: "https://images.unsplash.com/photo-1665783126947-8c98c7b7ac72?w=600&h=600&fit=crop" },
     { id: 2, category: "evening", title: "Вечернее платье", image: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=600&h=600&fit=crop" },
@@ -184,7 +180,6 @@ const portfolioItems = [
     { id: 6, category: "wedding", title: "Авторское платье", image: "https://images.unsplash.com/photo-1768885560804-637950eb129d?w=600&h=600&fit=crop" }
 ];
 
-// Данные услуг
 const servicesData = [
     { title: "Свадебные платья", desc: "Платье мечты для важного дня", price: "от 50 000 ₽", image: "https://images.unsplash.com/photo-1665783126947-8c98c7b7ac72?w=600&h=400&fit=crop", features: ["Индивидуальный дизайн", "3-4 примерки", "Срок: 2-3 месяца"] },
     { title: "Вечерние платья", desc: "Элегантные наряды", price: "от 30 000 ₽", image: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=600&h=400&fit=crop", features: ["Консультация по стилю", "2-3 примерки", "Срок: 1-2 месяца"] },
@@ -196,12 +191,10 @@ const ordersData = [
     { id: "ORD-002", date: "1 февраля 2026", service: "Вечернее платье", status: "Завершен", stage: "Готово", price: "32 000 ₽" }
 ];
 
-// ========== НАВИГАЦИЯ ==========
 function navigateTo(page) {
     currentPage = page;
     render();
     
-    // Обновляем активные ссылки
     document.querySelectorAll('.nav-links a, .footer a[data-page]').forEach(link => {
         if (link.dataset.page === page) {
             link.classList.add('active');
@@ -218,7 +211,6 @@ function logout() {
     navigateTo('account');
 }
 
-// ========== РЕНДЕРИНГ ==========
 function render() {
     const app = document.getElementById('app');
     const footer = document.getElementById('footer');
@@ -271,7 +263,6 @@ function initAccountTabs() {
     });
 }
 
-// ========== ОБРАБОТЧИКИ ФОРМ ==========
 function handleLogin(e) {
     e.preventDefault();
     const email = document.getElementById('loginEmail').value;
@@ -327,20 +318,73 @@ async function handleOrderSubmit(e) {
     }
 }
 
-function handleContactSubmit(e) {
+async function handleContactSubmit(e) {
     e.preventDefault();
-    showModal('Сообщение отправлено!', 'Мы свяжемся с вами в ближайшее время.');
-    e.target.reset();
+
+    const form = e.currentTarget;
+    const button = form.querySelector('button[type="submit"]');
+
+    if (!button || button.disabled) return;
+
+    const name = form.querySelector('#contactName').value.trim();
+    const email = form.querySelector('#contactEmail').value.trim();
+    const phone = form.querySelector('#contactPhone').value.trim();
+    const message = form.querySelector('#contactMsg').value.trim();
+
+    if (!form.reportValidity()) return;
+
+    if (!name || !email || !message) {
+        showModal(
+            'Заполните форму',
+            'Укажите имя, email и текст сообщения.'
+        );
+        return;
+    }
+
+    const oldText = button.textContent;
+    button.disabled = true;
+    button.textContent = 'Отправляем…';
+
+    try {
+        await emailjs.send(
+            'service_wai5z4h',
+            'template_vjua6va',
+            {
+                name: name,
+                email: email,
+                phone: phone || 'Не указан',
+                message: message
+            },
+            {
+                publicKey: 'Uy4kOy_P6yQ5kDoIU'
+            }
+        );
+
+        showModal(
+            'Сообщение отправлено!',
+            'Спасибо за обращение. Мы свяжемся с вами.'
+        );
+
+        form.reset();
+    } catch (error) {
+        console.error('Ошибка EmailJS:', error);
+
+        showModal(
+            'Ошибка отправки',
+            'Не удалось отправить сообщение. Попробуйте позже.'
+        );
+    } finally {
+        button.disabled = false;
+        button.textContent = oldText;
+    }
 }
 
-// ========== ИНИЦИАЛИЗАЦИЯ ==========
 document.addEventListener('DOMContentLoaded', () => {
-    // Мобильное меню
+
     const menuBtn = document.getElementById('menuBtn');
     const navLinks = document.getElementById('navLinks');
     menuBtn?.addEventListener('click', () => navLinks.classList.toggle('active'));
     
-    // Навигация по кликам
     document.querySelectorAll('.nav-links a, .footer a[data-page]').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -349,15 +393,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Модальное окно
     document.getElementById('modalClose')?.addEventListener('click', closeModal);
     document.getElementById('modalConfirm')?.addEventListener('click', closeModal);
     document.getElementById('modal')?.addEventListener('click', (e) => { if (e.target === document.getElementById('modal')) closeModal(); });
     
-    // Стартовая страница
     navigateTo('home');
     
-    // Глобальные функции
     window.navigateTo = navigateTo;
     window.showModal = showModal;
     window.logout = logout;
